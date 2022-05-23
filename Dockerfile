@@ -1,6 +1,4 @@
-FROM apache/airflow:slim-latest-python3.9
-
-#LABEL version="1.0.0"
+FROM apache/airflow:latest-python3.9
 
 RUN pip install --user pytest
 
