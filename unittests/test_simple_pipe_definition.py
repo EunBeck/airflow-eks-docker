@@ -3,9 +3,11 @@ import collections
 import pendulum
 from airflow.models import DagBag
 
+
 @pytest.fixture(scope="class")
 def dag(dagbag):
     return dagbag.get_dag('simple_pipe')
+
 
 class TestSimplePipeDefinition:
 

@@ -1,6 +1,7 @@
 import pytest
 from airflow.models import DagBag
 
+
 class TestDagValidation:
 
     LOAD_SECOND_THRESHOLD = 2

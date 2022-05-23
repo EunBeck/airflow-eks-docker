@@ -10,6 +10,7 @@ import pytest
 import json
 import os
 
+
 class TestIntegrationSimplePipe:
 
     def pause_dag(self, dag_id, pause):
@@ -17,7 +18,7 @@ class TestIntegrationSimplePipe:
         models.DagModel.get_dagmodel(dag_id).set_is_paused(
             is_paused=pause
         )
-        
+
     @provide_session
     def clean_dag(self, dag_id, session=None):
         """
@@ -33,7 +34,7 @@ class TestIntegrationSimplePipe:
         
         for table in tables:
             session.query(table).filter(table.dag_id == dag_id).delete()
-        
+
     def trigger_dag(self, dag_id, execution_date):
         """
         Trigger a new dag run for a Dag with an execution date.
@@ -48,7 +49,7 @@ class TestIntegrationSimplePipe:
         execution_date = timezone.parse(execution_date)
         info = get_dag_run_state(dag_id, execution_date)
         return info
-        
+
     def test_simple_pipe(self):
         """ Simple Pipe should run successfully """
         execution_date = "2020-05-21T12:00:00+00:00"
